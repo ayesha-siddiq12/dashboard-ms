@@ -13,6 +13,7 @@ jobs:
     - name: Node LTS versions
       uses: msimerson/node-lts-versions@v1.1.1
     - run: npm install --force
-    - name: Build
-      run: ng build
+    
+    - run: npm install -g @angular/cli > /dev/null
+    - run: ng build
   
