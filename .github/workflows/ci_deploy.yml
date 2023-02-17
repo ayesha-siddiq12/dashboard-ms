@@ -1,10 +1,9 @@
 name: Continuous Integration
 on:
+  push:
+    branches: ['main']
   pull_request:
-    types:
-      - opened
-    branches:
-      - master    
+    branches: ['main']    
 
 jobs:
   build-and-test:
