@@ -1,0 +1,23 @@
+<div class="col-span-full tab-wrapper" appFullScreen>
+    <div class="filter-row">
+        <app-time-series-filter-panel (timeSeriesUpdated)="timeSeriesUpdated($event)" [minDate]="minDate" [maxDate]="maxDate"></app-time-series-filter-panel>
+    </div>
+    <div class="reports-row">
+        <div class="row-wrapper grid grid-cols-2 gap-4">
+            <div class="col-span-2 xmd:col-span-1 div-shadow">
+                <app-big-number [bigNumberReportData]="bigNumberReports[0]" ></app-big-number>
+            </div>
+            <div class="col-span-2 xmd:col-span-1 div-shadow">
+                <app-sas-average-attendance #averageAttendance (bigNumberReport)="appendBigNumber($event)" [startDate]="startDate" [endDate]="endDate" (exportDates)="settimeSeriesDates($event)"></app-sas-average-attendance>
+            </div>
+        </div>
+        <div class="row-wrapper grid grid-cols-2 gap-4">
+            <div class="col-span-2 xmd:col-span-1 div-shadow">
+                <app-gender-wise-average-attendance #genderWiseAverageAttendance (exportDates)="settimeSeriesDates($event)"></app-gender-wise-average-attendance>
+            </div>
+            <div class="col-span-2 xmd:col-span-1 div-shadow">
+                <app-grade-wise-average-attendance #gradeWiseAverageAttendance (exportDates)="settimeSeriesDates($event)"></app-grade-wise-average-attendance>
+            </div>
+        </div>
+    </div>
+</div>

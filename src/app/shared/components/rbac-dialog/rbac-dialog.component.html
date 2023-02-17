@@ -1,0 +1,45 @@
+<div class="grid grid-cols-3 mb-2">
+    <div class="col-start-2 col-end-3 wrapper">
+        <div class="d-flex justify-content-center">
+            <p class="h3">Your Location</p>
+        </div>
+        <form class="form theme-form" [formGroup]="rbacForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <div class="mb-4">
+                <label class="form-label" for="name">Name</label>
+                <input class="form-control" id="name" formControlName="name" type="text" placeholder="Name"
+                    data-bs-original-title="" title="">
+                <span
+                    *ngIf="f?.['name']?.touched && f?.['name']?.errors?.['required']">
+                    <small class="text-danger">Please Enter the Name</small>
+                </span>
+            </div>
+            <div class="mb-4">
+                <!-- <label class="form-label" for="role">Role</label> -->
+                <ng-select class="ng-select-control" formControlName="role" id="role" (change)="onRoleSelect($event)"
+                    placeholder="Select Role">
+                    <ng-option [value]="r.value" *ngFor="let r of rbacRoles">
+                        <span class="text-dark">{{r.label}}</span>
+                    </ng-option>
+                </ng-select>
+                <span
+                    *ngIf="f?.['role']?.touched && f?.['role']?.errors?.['required']">
+                    <small class="text-danger">Please Select a Role</small>
+                </span>
+            </div>
+            <div class="mb-4" *ngFor="let filter of filters">
+                <!-- <label class="form-label" [for]="filter?.name?.toLowerCase()">{{filter?.name}}</label> -->
+                <ng-select class="ng-select-control" [formControlName]="filter?.name?.toLowerCase()"
+                    [id]="filter?.name?.toLowerCase()" [placeholder]="'Select ' + filter?.name" (change)="getFilters()">
+                    <ng-option *ngFor="let option of filter?.options" [value]="option[filter.valueProp]">
+                        {{option[filter?.labelProp]}}
+                    </ng-option>
+                </ng-select>
+                <span
+                    *ngIf="f?.[filter?.name?.toLowerCase()]?.touched && f?.[filter?.name?.toLowerCase()]?.errors?.['required']">
+                    <small class="text-danger">{{'Please Select a ' + filter.name}}</small>
+                </span>
+            </div>
+            <button class="pull-right" type="submit" id="submit" data-bs-original-title="" title="">Submit</button>
+        </form>
+    </div>
+</div>

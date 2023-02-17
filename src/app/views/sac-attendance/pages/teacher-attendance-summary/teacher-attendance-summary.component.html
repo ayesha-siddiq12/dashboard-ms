@@ -1,0 +1,16 @@
+<div class="col-span-full tab-wrapper" appFullScreen>
+    <div class="filter-row">
+        <app-time-series-filter-panel (timeSeriesUpdated)="timeSeriesUpdated($event)" [minDate]="minDate" [maxDate]="maxDate"></app-time-series-filter-panel>
+    </div>
+    <div class="reports-row">
+        <div class="grid grid-cols-2 gap-4 row-wrapper">
+            <div class="col-span-2 xmd:col-span-1 div-shadow" *ngIf="bigNumberReports?.length > 0">
+                <app-big-number [bigNumberReportData]="bigNumberReports[0]"></app-big-number>
+            </div>
+            <div class="col-span-2 xmd:col-span-1 div-shadow">
+                <app-tas-average-attendance #averageAttendance [startDate]="startDate" [endDate]="endDate" (exportDates)="settimeSeriesDates($event)" (bigNumberReport)="appendBigNumber($event)"></app-tas-average-attendance>
+            </div>
+        </div>
+        
+    </div>
+</div>

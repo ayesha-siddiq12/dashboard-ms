@@ -1,0 +1,8 @@
+<div class="col-span-full">
+    <ng-container *ngIf="tableReportData">
+        <sb-dashlet type="bar" [data]="tableReportData" [config]="config"></sb-dashlet>
+        <!-- <mat-paginator [length]="tableReportData?.data?.length" pageSize="1" [pageSizeOptions]="[5, 10]" (page)="onPageChange($event)" aria-label="Select page" *ngIf="tableReportData?.data?.length >= 1">
+        </mat-paginator> -->
+    </ng-container>
+
+</div>

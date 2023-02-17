@@ -1,0 +1,13 @@
+.wrapper{
+    background-color: white;
+    margin: 20px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+::ng-deep {
+    ng-select{
+        padding-bottom: 0px !important;
+        border: none !important;
+    }
+}

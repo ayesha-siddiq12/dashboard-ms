@@ -1,0 +1,5 @@
+<div class="time-series-wrapper">
+    <input class="w-64 p-2 border border-gray-400 rounded-lg focus:outline-none focus:border-indigo-500" type="text"
+        ngxDaterangepickerMd [(ngModel)]="selected" placeholder="Choose date" (change)="changeDate($event)"
+        [showClearButton]="true" [minDate]="minDate" [maxDate]="maxDate" />
+</div>

@@ -1,0 +1,24 @@
+<div class="metric-card-wrapper">
+    <div class="grid gap-4 grid-cols-6 xmd:grid-cols-12">
+        <div class="col-span-6">
+            <p class="h4">Attendance</p>
+        </div>
+    </div>
+</div>
+
+<div class="custom-tab-group-wrapper">
+    <mat-tab-group [selectedIndex]="tabIndex" mat-align-tabs="start" animationDuration="0ms" (selectedTabChange)="onTabChanged($event)">
+        <mat-tab label="Student Attendance Compliance" *ngIf="tabs.includes('Student Attendance Compliance')">
+            <app-student-attendance-compliance *ngIf="selectedTabLabel === 'Student Attendance Compliance'"></app-student-attendance-compliance>
+        </mat-tab>
+        <mat-tab label="Student Attendance Summary" *ngIf="tabs.includes('Student Attendance Summary')">
+            <app-student-attendance-summary *ngIf="selectedTabLabel === 'Student Attendance Summary'"></app-student-attendance-summary>
+        </mat-tab>
+        <mat-tab label="Teacher Attendance Compliance" *ngIf="tabs.includes('Teacher Attendance Compliance')">
+            <app-teacher-attendance-compliance *ngIf="selectedTabLabel === 'Teacher Attendance Compliance'"></app-teacher-attendance-compliance>
+        </mat-tab>
+        <mat-tab label="Teacher Attendance Summary" *ngIf="tabs.includes('Teacher Attendance Summary')">
+            <app-teacher-attendance-summary *ngIf="selectedTabLabel === 'Teacher Attendance Summary'"></app-teacher-attendance-summary>
+        </mat-tab>
+    </mat-tab-group>
+</div>
