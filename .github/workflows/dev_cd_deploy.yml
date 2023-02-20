@@ -41,6 +41,6 @@ jobs:
           docker login
           docker pull tibildocker/dashboard_ms
           docker stop ansible_dashboard_app_1 || true
-          docker rm ansible_ingest_dashboard_1 || true
+          docker rm ansible_dashboard_app_1 || true
           docker rmi tibildocker/dashboard_ms:dev || true
-          docker run -d --name ansible_dashboard_app_1 -p 3000:3000 --network ansible_cqube_net tibildocker/dashboard_ms:dev
+          docker run -d --name ansible_dashboard_app_1 -p 4200:80 --network ansible_cqube_net tibildocker/dashboard_ms:dev
